@@ -12,7 +12,7 @@ This addon will show a review notice to an admin user, suggesting them to review
 
 The addon will manage responses and reminders to make the notice not as intrusive.
 
-== Install ==
+## Install
 
 Run the following composer command at your project's root:
 
@@ -20,7 +20,7 @@ Run the following composer command at your project's root:
 composer require 10quality/wpmvc-addon-reviewer
 ```
 
-== Configuration ==
+## Configuration
 
 Add your project's root folder name inside the `paths` settings, like:
 
