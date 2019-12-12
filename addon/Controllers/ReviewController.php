@@ -81,7 +81,7 @@ class NoticesController extends Controller
             $this->view->show( 'admin.review-notice', [
                 'main'          => $main,
                 'config'        => $config,
-                'days'          => 0,
+                'days'          => $this->minutes_to_days( time() - $time ),
                 'namespace'     => $main->config->get( 'namespace' ),
             ] );
         }
@@ -123,5 +123,17 @@ class NoticesController extends Controller
             Log::error( $e );
         }
         $response->json();
+    }
+    /**
+     * Returns the amount of days in a minutes int value. (floor)
+     * @since 1.0.0.
+     * 
+     * @param int $minutes
+     * 
+     * @return int
+     */
+    private function minutes_to_days( $minutes )
+    {
+        return floor( $minutes / 1440 );
     }
 }
