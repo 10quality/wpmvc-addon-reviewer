@@ -18,7 +18,7 @@ use WPMVC\Addons\Reviewer\Models\Review;
  * @license GPLv3
  * @version 1.0.0
  */
-class NoticesController extends Controller
+class ReviewController extends Controller
 {
     /**
      * Registers addon assets.

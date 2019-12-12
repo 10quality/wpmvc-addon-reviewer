@@ -25,7 +25,7 @@ class ReviewerAddon extends Addon
     {
         add_action( 'admin_notices', [&$this, 'admin_notices'] );
         add_action( 'wp_ajax_wpmvc_addon_reviewer', [&$this, 'ajax'] );
-        add_action( 'admin_enqueue_scripts', [&$this, 'register_assets'] )
+        add_action( 'admin_enqueue_scripts', [&$this, 'register_assets'] );
     }
     /**
      * Evals and displays review notice.

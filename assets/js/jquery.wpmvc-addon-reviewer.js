@@ -73,9 +73,9 @@
                 $.ajax( self.data.ajax_url, {
                     method: 'POST',
                     data: request,
-                    success: self.on_success,
-                    error: self.on_error,
-                    complete: self.on_complete,
+                    success: self.methods.on_success,
+                    error: self.methods.on_error,
+                    complete: self.methods.on_complete,
                 } );
             },
             /**
@@ -135,7 +135,7 @@
                 self.$el.find( 'a' ).css( 'border-color', self.loading ? '#ccc' : '' );
             },
         };
-        self.init();
+        self.methods.init();
     };
     /**
      * Plugin initializer.
