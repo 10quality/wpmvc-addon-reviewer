@@ -72,7 +72,8 @@ class ReviewController extends Controller
             $review->save();
         }
         $time = array_key_exists( 'reminder', $data ) && ! empty( $data['reminder'] ) ? $data['reminder'] : $data['start'];
-        if ( time() - $time > $config['interval']
+        $minutes = ( time() - $time ) / 60;
+        if ( $minutes > $config['interval']
             && ( ! array_key_exists( 'res', $data )
                 || in_array( $data['res'] , [Review::RESPONSE_REMIND, Review::RESPONSE_IN_PROGRESS] )
             )
@@ -81,7 +82,7 @@ class ReviewController extends Controller
             $this->view->show( 'admin.review-notice', [
                 'main'          => $main,
                 'config'        => $config,
-                'days'          => $this->minutes_to_days( time() - $time ),
+                'days'          => $this->minutes_to_days( $minutes ),
                 'namespace'     => $main->config->get( 'namespace' ),
             ] );
         }
