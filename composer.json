@@ -1,8 +1,8 @@
 {
     "name": "10quality/wpmvc-addon-reviewer",
-    "description": "Add on description.",
+    "description": "This addon will show a review notice to an admin user, suggesting them to review the plugin or theme built in Wordpress MVC.",
     "license": "MIT",
-    "keywords": ["wpmvc"],
+    "keywords": ["wpmvc", "review"],
     "authors": [],
     "require": {
         "php": ">=5.4.0",
