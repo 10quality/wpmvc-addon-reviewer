@@ -26,6 +26,8 @@ class ReviewerAddon extends Addon
         add_action( 'admin_notices', [&$this, 'admin_notices'] );
         add_action( 'wp_ajax_wpmvc_addon_reviewer', [&$this, 'ajax'] );
         add_action( 'admin_enqueue_scripts', [&$this, 'register_assets'] );
+        // Localization
+        add_action( 'init', [&$this, 'load_textdomain'], 10 );
     }
     /**
      * Evals and displays review notice.
@@ -56,5 +58,26 @@ class ReviewerAddon extends Addon
     public function register_assets()
     {
         $this->mvc->call( 'ReviewController@assets' );
+    }
+    /**
+     * Loads localization / text domain files.
+     * @since 1.0.0
+     * 
+     * @hook init
+     */
+    public function load_textdomain()
+    {
+        $domain = 'wpmvc-addon-reviewer';
+        load_textdomain(
+            $domain,
+            sprintf(
+                '%s/%ss/%s/vendor/10quality/wpmvc-addon-reviewer/assets/lang/%s-%s.mo',
+                WP_CONTENT_DIR,
+                $this->main->config->get( 'type' ),
+                $this->main->config->get( 'paths.root_folder' ),
+                $domain,
+                is_admin() && function_exists( 'get_user_locale' ) ? get_user_locale() : get_locale()
+            )
+        );
     }
 }
