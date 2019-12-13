@@ -16,7 +16,7 @@ use WPMVC\Addons\Reviewer\Models\Review;
  * @author 10 Quality <info@10quality.com>
  * @package wpmvc-addon-reviewer
  * @license GPLv3
- * @version 1.0.0
+ * @version 1.0.1
  */
 class ReviewController extends Controller
 {
@@ -59,7 +59,7 @@ class ReviewController extends Controller
                 . $main->config->get( 'localize.textdomain' )
                 . '/reviews/#new-post';
         $config['img'] = apply_filters(
-            'wpmvc_addon_reviewer_img_' . $namespace,
+            'wpmvc_addon_reviewer_img_' . $main->config->get( 'namespace' ),
             addon_assets_url( 'img/stars.svg', __DIR__ )
         );
         // Prepare
