@@ -87,6 +87,29 @@ Settings using a custom review url:
     ],
 ```
 
+## Wordpress Hooks
+
+### Filter:wpmvc_addon_reviewer_img_{namespace}
+
+`wpmvc_addon_reviewer_img_{namespace}`
+
+Allows to filter and replace the default `stars.svg` display in the notice, for the image of your choice.
+
+Replace **{namespace}** with your Wordpress MVC project's namespace (With caps).
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `$image_url` | `string` | Review image url. Recommended resolution (150px x 150px). |
+
+Usage example (namespace is *TestPlugin*):
+
+```php
+add_filter( 'wpmvc_addon_reviewer_img_TestPlugin', function( $url ) {
+    // 150px x 150px
+    return 'https://www.domain.com/path-to/image.png';
+} );
+```
+
 ## Coding Guidelines
 
 PSR-2 coding guidelines.
